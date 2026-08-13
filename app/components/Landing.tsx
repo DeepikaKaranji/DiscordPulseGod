@@ -21,7 +21,7 @@ export const Landing = ({ onStart }: Props) => {
                 </div>
                 <br />
                 <p>
-                    Analyze millions of messages with DiscordPulseGod's interactive dashboard! <b>Free and open source ❤️</b>
+                    Analyze millions of messages with DiscordPulseGod's interactive dashboard! <b>❤️</b>
                 </p>
             </div>
             <div className="Landing__buttons">
