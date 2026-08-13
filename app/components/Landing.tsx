@@ -32,7 +32,7 @@ export const Landing = ({ onStart }: Props) => {
                 <Button
                     hueColor={[244, 40, 72]}
                     className="Button--chalk"
-                    href={env.isSelfHosted ? "https://chatanalytics.app/demo" : env.isDev ? "/report.html" : "/demo"}
+                    href={env.isDev ? "/report.html" : "/demo"}
                     target="_blank"
                 >
                     View Demo
