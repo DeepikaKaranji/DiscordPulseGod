@@ -1,0 +1,134 @@
+.AuthorNote {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AuthorNote__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 0;
+    appearance: none;
+    cursor: pointer;
+    color: #d7dde5;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 10px;
+
+    &-icon {
+        width: 26px;
+        height: 18px;
+
+        path {
+            fill: none;
+            stroke: #f2e9d8;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vector-effect: non-scaling-stroke;
+        }
+    }
+
+    &--settled {
+        animation: none;
+    }
+
+    &:not(&--settled) {
+        animation: AuthorNote__bounce 1.8s ease-in-out infinite;
+    }
+
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.AuthorNote--expanded .AuthorNote__trigger-icon path {
+    stroke: #ffffff;
+}
+
+.AuthorNote__panel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 480px;
+    transition: max-height 0.45s ease, opacity 0.3s ease;
+}
+
+.AuthorNote--expanded .AuthorNote__panel {
+    max-height: 1000px;
+    opacity: 1;
+    margin-top: 14px;
+}
+
+.AuthorNote__panel-inner {
+    position: relative;
+    background: rgb(28 35 43 / 90%);
+    border-left: 1.5px solid #f2e9d8;
+    border-right: 1.5px solid #f2e9d8;
+    padding: 22px 34px;
+    transform: scaleY(0.04);
+    transform-origin: top center;
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.22, 0.7, 0.32, 1), opacity 0.35s ease 0.05s;
+}
+
+.AuthorNote--expanded .AuthorNote__panel-inner {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.AuthorNote__panel-curl {
+    position: absolute;
+    left: -1.5px;
+    right: -1.5px;
+    height: 16px;
+    border: 1.5px solid #f2e9d8;
+    border-radius: 50%;
+    background: rgb(28 35 43 / 90%);
+
+    &--top {
+        top: -8px;
+    }
+
+    &--bottom {
+        bottom: -8px;
+    }
+}
+
+.AuthorNote__panel-content {
+    position: relative;
+    z-index: 1;
+    color: #d7dde5;
+    text-align: left;
+
+    h3 {
+        color: #ffffff;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@keyframes AuthorNote__bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}

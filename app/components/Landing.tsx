@@ -1,3 +1,4 @@
+import { AuthorNote } from "@app/components/AuthorNote";
 import { Button } from "@app/components/Button";
 
 import Lock from "@assets/images/icons/lock.svg";
@@ -25,17 +26,27 @@ export const Landing = ({ onStart }: Props) => {
                 </p>
             </div>
             <div className="Landing__buttons">
-                <Button hueColor={[258, 90, 61]} className="Landing__cta" onClick={onStart}>
+                <Button hueColor={[258, 40, 72]} className="Landing__cta Button--chalk" onClick={onStart}>
                     Generate a report
                 </Button>
                 <Button
-                    hueColor={[244, 90, 61]}
+                    hueColor={[244, 40, 72]}
+                    className="Button--chalk"
                     href={env.isSelfHosted ? "https://chatanalytics.app/demo" : env.isDev ? "/report.html" : "/demo"}
                     target="_blank"
                 >
                     View Demo
                 </Button>
             </div>
+            <AuthorNote />
+            <a
+                className="Landing__footnote"
+                href="https://github.com/DeepikaKaranji/DiscordPulseGod"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                View project on GitHub
+            </a>
         </div>
     );
 };
